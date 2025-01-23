@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>INFINITY</title>
+</head>
+
+<body style="margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column">
+    <div class="container">
+
+        <!-- navbar -->
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <img src="./images/psg college logo.png "alt="Logo" class="logo-img">
+              </div>
+            <ul class="navbar__list">
+                <li class="navbar__list--item">
+                    <a href="#plot" class="navbar__list--link navbar__plot">ABOUT US</a>
+                    <div class="navbar__list--dot hide"></div>
+                </li>
+                <li class="navbar__list--item">
+                    <a href="#events" class="navbar__list--link">EVENTS</a>
+                    <div class="navbar__list--dot hide"></div>
+                </li>
+				<li class="navbar__list--item">
+                    <a href="#sponsors" class="navbar__list--link">SPONSORS</a>
+                    <div class="navbar__list--dot hide"></div>
+                </li>
+				<li class="navbar__list--item">
+                    <a href="#asponsors" class="navbar__list--link">ALUMNI</a>
+                    <div class="navbar__list--dot hide"></div>
+                </li>
+                <li class="navbar__list--item">
+                    <a href="#gallery" class="navbar__list--link">SCHEDULE</a>
+                    <div class="navbar__list--dot hide"></div>
+                </li>
+				<li class="navbar__list--item">
+                    <a href="#collage" class="navbar__list--link">GALLERY</a>
+                    <div class="navbar__list--dot hide"></div>
+                </li>
+			
+            </ul>
+            <!-- This is the Hamburger Icon for Mobile -->
+<div class="navbar__hamburger" id="hamburger-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
+        </nav>
+
+
+        <!-- audio -->
+        <div class="audioplayer">
+
+
+            <div class="audioplayer__head">
+                <div class="audioplayer__btn">
+                    <i class="fa-solid fa-play audioplayer__btn--icon"></i>
+                </div>
+                <h3 class="audioplayer__text">INFINITY..</h3>
+            </div>
+            <div class="audioplayer__bar">
+                <div class="waveform" id="waveform"></div>
+                <div class="audioplayer__bar--curr">0:00</div>
+                <div class="audioplayer__bar--total">3:42</div>
+            </div>
+
+            <div class="audioplayer__controls">
+                <div class="audioplayer__volume">
+                    <i class="fa-solid fa-volume-high audioplayer__volume--icon"></i>
+                    <div class="audioplayer__volume--length"></div>
+                    <div class="audioplayer__volume--length currlength"></div>
+                </div>
+                <div class="audioplayer__skip">
+                    <i class="fa-solid fa-backward audioplayer__skip--back"></i>
+                    <i class="fa-solid fa-forward audioplayer__skip--forw"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- music -->
+        <div class="music">
+            <img src="" class="music__icon">
+            <img src="" class="music__icon music__icon--click">
+        </div>
+
+        <!-- loader -->
+        <div class="loader">
+            <div class="loader__main"><span class="loader__counter"></span>%</div>
+            <div class="loader__block">
+                <div class="loader__block--text">Loading</div>
+                <div class="loader__block--dot"></div>
+            </div>
+            <div class="loader__bar">
+                <div class="loader__bar--line"></div>
+            </div>
+        </div>
+
+        <!-- home -->
+
+        <div class="home" id="home">
+            <div class="home__container">
+                <div class="home__overlay"></div>
+                <div class="home__bg"> </div>
+                <div class="home__bgimage">
+                    <div class="video-wrapper">
+                        <video autoplay muted loop playsinline>
+                            <source src="./images/min1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="home__hero">
+                    <div>
+                        <img src="images/infinity2025_logofinal__.png" alt="Your Image Description"
+                            class="home__image" />
+                    </div>
+                </div>
+
+                <div class="home__intro" id="plot">
+                    <h1 class="home__intro--title">ABOUT US</h1>
+                    <div class="home__intro--text">Infinity, a dynamic platform for innovation and excellence organized by
+                        the BSc Computer Systems and Design students of the Applied Mathematics and Computational
+                        Sciences Department since 2019. We feature diverse, student-curated events that transform
+                        concepts into groundbreaking solutions. Infinity bridges classroom learning, celebrating
+                        creativity, collaboration, and technical brilliance. With every edition, it inspires
+                        participants to refine their skills and unleash their potential. Join us to experience the
+                        journey from bytes to brilliance..</div>
+                </div>
+            </div>
+
+        </div>
+		
+	<div class="div-events">
+            <iframe class="events" id="events" src="./events/index.html"
+            style="border: none;" title="Linked Page">
+			</iframe>
+    </div>
+	<div id="contents">
+	    <div class="video-wrapper">	
+	            <video autoplay muted loop playsinline>
+                    <source src="./images/min7.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+		</div>
+		
+			
+			
+			
+		<div class="div-sponsors">
+                    <iframe class="sponsors" id="sponsors" src="./sponsors/index.html"
+						style="width: 100%; height: 150vh; border: none;" title="Linked Page">
+					</iframe>
+                </div>
+		<<div class="credits" id="credits">
+    <div class="credits__container">
+        <div class="credits__grid">
+            <!-- grid 1 -->
+            <!-- grid 3 -->
+            <div class="credits__production">
+                
+                <h3 class="credits__production--title"></h3>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+		
+			<div class="div-asponsors">
+					<iframe class="asponsors" id="asponsors" src="./asponsors/index.html"
+						style="width: 100%; height: 150vh; border: none;" title="Linked Page">
+					</iframe>
+                </div>
+			
+
+			<!-- coins -->
+            <div class="coins" id="coins">
+                
+                
+                <!--<img src="images/coin1.png" alt="coin1" class="coins__image1">
+            <img src="images/coin2.png" alt="coin2" class="coins__image2">
+            <img src="images/coin3.png" alt="coin3" class="coins__image3">
+            <img src="images/coin4.png" alt="coin4" class="coins__image4">
+            <img src="images/coin5.png" alt="coin5" class="coins__image5">-->
+            </div>
+			
+			
+			<!-- gallery -->
+            <div class="gallery" id="gallery">
+                <div class="gallery__container">
+                    <!--div class="gallery__parent">
+                        <div class="gallery__parent--gird">
+                            <div class="gallery__parent--girdline"></div>
+                        </div>
+                        <div class="gallery__parent--gird">
+                            <div class="gallery__parent--girdline"></div>
+                        </div>
+                        <div class="gallery__parent--gird">
+                            <div class="gallery__parent--girdline"></div>
+                        </div>
+                        <div class="gallery__parent--gird"></div>
+                    </div>-->
+                    <div class="gallery__text">
+                        <h2 class="gallery__text--head">Get Ready!</h2>
+                        <div class="gallery__text--view">Our schedule is dropping soon!</div>
+                    </div>
+                    <!--div class="gallery__grid">
+                        <div class="gallery__grid--image1 gallery__image hideview1"></div>
+                        <div class="gallery__grid--image2 gallery__image hideview2"></div>
+                        <div class="gallery__grid--image3 gallery__image hideview3"></div>
+                        <div class="gallery__grid--image4 gallery__image hideview4"></div>
+                        <div class="gallery__grid--image5 gallery__image hideview5"></div>
+                        <div class="gallery__grid--image6 gallery__image hideview6"></div>
+                        <div class="gallery__grid--image7 gallery__image hideview7"></div>
+                        <div class="gallery__grid--image8 gallery__image hideview8"></div>
+                        <div class="gallery__grid--image9 gallery__image hideview9"></div>
+                        <div class="gallery__grid--image10 gallery__image hideview10"></div>
+                        <div class="gallery__grid--image11 gallery__image hideview11"></div>
+                    </div>-->
+                    <!--a href="#" class="gallery__link">
+                        <div class="gallery__link--text">Share</div>
+                    </a>-->
+                </div>
+            </div>
+			
+			
+			<div class="collage" id="collage">
+                <div class="photo-block">
+                    <div class="photo-grid">
+                        <div class="photo"><img src="./images/gallery/profile1.JPG" alt="profile1"></div>
+                        <div class="photo"><img src="./images/gallery/profile2.JPG" alt="profile2"></div>
+                        <div class="photo"><img src="./images/gallery/profile3.JPG" alt="profile3"></div>
+                        <div class="photo"><img src="./images/gallery/profile4.JPG" alt="profile4"></div>
+                        <div class="photo"><img src="./images/gallery/profile5.JPG" alt="profile5"></div>
+                        <div class="photo"><img src="./images/gallery/profile6.JPG" alt="profile6"></div>
+                        <div class="photo"><img src="./images/gallery/profile7.JPG" alt="profile7"></div>
+                        <div class="photo"><img src="./images/gallery/profile8.JPG" alt="profile8"></div>
+                        <div class="photo"><img src="./images/gallery/profile9.jpg" alt="profile9"></div>
+                        <div class="photo"><img src="./images/gallery/profile10.jpg" alt="profile10"></div>
+                        <div class="photo"><img src="./images/gallery/profile11.jpg" alt="profile11"></div>
+                        <div class="photo"><img src="./images/gallery/profile12.jpg" alt="profile12"></div>
+                        <div class="photo"><img src="./images/gallery/profile13.jpg" alt="profile13"></div>
+                        <div class="photo"><img src="./images/gallery/profile14.JPG" alt="profile14"></div>
+                        <div class="photo"><img src="./images/gallery/profile15.JPG" alt="profile15"></div>
+                        <div class="photo"><img src="./images/gallery/profile16.JPG" alt="profile16"></div>
+                        <div class="photo"><img src="./images/gallery/profile17.JPG" alt="profile17"></div>
+                        <div class="photo"><img src="./images/gallery/profile18.JPG" alt="profile18"></div>
+                        <div class="photo"><img src="./images/gallery/profile19.JPG" alt="profile19"></div>
+                        <div class="photo"><img src="./images/gallery/profile20.JPG" alt="profile20"></div>
+                        <div class="photo"><img src="./images/gallery/profile21.JPG" alt="profile21"></div>
+                        <div class="photo"><img src="./images/gallery/profile22.jpg" alt="profile22"></div>
+                        <div class="photo"><img src="./images/gallery/profile23.jpg" alt="profile23"></div>
+                        <div class="photo"><img src="./images/gallery/profile24.jpg" alt="profile24"></div>
+                        <div class="photo"><img src="./images/gallery/profile25.jpg" alt="profile25"></div>
+                        <div class="photo"><img src="./images/gallery/profile26.jpg" alt="profile26"></div>
+                        <div class="photo"><img src="./images/gallery/profile27.jpg" alt="profile27"></div>
+                        <div class="photo"><img src="./images/gallery/profile28.JPG" alt="profile28"></div>
+                        <div class="photo"><img src="./images/gallery/profile29.JPG" alt="profile29"></div>
+                        <div class="photo"><img src="./images/gallery/profile30.jpg" alt="profile30"></div>
+                        <div class="photo"><img src="./images/gallery/profile31.jpg" alt="profile31"></div>
+                        <div class="photo"><img src="./images/gallery/profile32.jpg" alt="profile32"></div>
+                        <div class="photo"><img src="./images/gallery/profile33.jpg" alt="profile33"></div>
+						<div class="photo"><img src="./images/gallery/profile34.jpg" alt="profile34"></div>
+                    </div>
+                </div>
+               
+                
+
+                
+            </div>
+			
+			
+			<div class="div-legacy">
+                <iframe class="legacy" id="legacy" src="./legacy/index.html"
+					style="width: 100%; height: 100vh; border: none;" title="Linked Page">
+				</iframe>
+            </div>    
+
+
+
+            <!-- skull-block 
+            <div class="skullblock">
+                <img src="images/5d1ccf5390704ad21f992d8e_skull-p-500.png" alt="skull" class="skullblock__skull">
+                <img src="images/5d25e8040574eeecaa75cbdd_last-part.png" alt="last" class="skullblock__last">
+            </div>-->
+
+            
+			
+            <!-- share -->
+            <div class="share">
+                <div class="share__content">
+                    <div class="share__content--info">Share this experience</div>
+                    
+					<div class="share__content--info"> Sakthivel Mallaiah RGA - Secretary</div>
+					<div class="share__content--info"> Srinithi L - Secretary</div>
+					<div class="share__content--info"> Jennifer J - Technical Head</div>
+					<div class="share__content--info"> Tamilini S - Technical Head</div>
+					
+					<div class="share__content--back">
+                        <a href="#home" class="share__content--link">Back to top</a><br>
+                    </div>
+					
+                </div>
+                <div class="share__line">
+                    <div class="share__line--draw"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--footer class="section bg-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">INFINITY HEADS</h6>
+                        <ul class="list-unstyled footer-link mt-4">
+                            <li><a href="">SAKTHI</a></li>
+                            <li><a href="">VIGNESH</a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2">
+                    <div class="">
+                        <h6 class="footer-heading text-uppercase text-white">TECHNICAL HEADS</h6>
+                        <ul class="list-unstyled footer-link mt-4">
+                            <li><a href="">JENNIFER</a></li>
+                            <li><a href="">TAMILINI</a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <p class="footer-alt mb-0 f-14">2025 © CSD, All Rights Reserved</p>
+        </div>
+    </footer>-->
+    <script>
+// JavaScript for Mobile Toggle
+document.getElementById('hamburger-icon').addEventListener('click', function() {
+  var navbarLinks = document.querySelector('.navbar__list');
+  navbarLinks.classList.toggle('show');
+});
+
+// Close the menu when a link is clicked
+var navbarLinks = document.querySelectorAll('.navbar__list--link');
+navbarLinks.forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.querySelector('.navbar__list').classList.remove('show');
+  });
+});
+
+      </script>
+
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+.credits{
+    // position: relative;
+    width: 100%;
+    height: 100vh;
+    &__container{
+        @extend %flex;
+        // position: relative;
+        // top: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+ 
+    }
+
+    /*&__grid{
+        z-index: 999;
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: auto auto;
+    }*/
+    &__date{
+        @extend %credits-box;
+        
+        &--position{
+            @extend %flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            // overflow: hidden;
+        }
+        &--content{
+            position: relative;
+            overflow: hidden;
+            height: 45px;
+        }
+        &--year{
+            font-size: 40px;
+            line-height: 50px;
+            font-weight: 700;
+            transition: transform 0.2s ease-in;
+        }
+        &--content:hover &--year{
+            transform: translateY(-50px);
+        }
+        &--title{
+            @extend %credits-title;
+        }
+        &--text{
+            @extend %credits-text;
+        }
+    }
+    &__story{
+        @extend %credits-box;
+        
+        &--image{
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            opacity: 0.3;
+            transition: transform 2s ease-in;
+            // transform: translateX(-100%);
+        }
+        &--title{
+            @extend %credits-title;
+        }
+        &--text{
+            @extend %credits-text;
+        }
+    }
+
+    &__story:hover &__story--image{
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    &__production{
+        grid-column-start: 3;
+        grid-column-end: 5;
+        @extend %credits-box;
+    
+        &--content{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        &--image{
+            width: 320px;
+            opacity: 0.3;
+            transition: all 0.5s linear;
+        }
+        &--title{
+            @extend %credits-title;
+        }
+        &--text{
+            @extend %credits-text;
+        }
+    }
+    &__production:hover &__production--image{
+        opacity: 1;
+    }
+
+    &__dist{
+        @extend %credits-box;
+        &--content{
+            @extend %flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90%;
+        }
+        &--image{
+            width: 80px;
+        }
+        &--title{
+            @extend %credits-title;
+        }
+        &--text{
+            @extend %credits-text;
+        }
+    }
+
+    &__budget{
+        @extend %credits-box;
+        &--position{
+            @extend %flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            // overflow: hidden;
+        }
+        &--parent{
+            position: relative;
+            overflow: hidden;
+            height: 45px;
+        }
+        &--content{
+            font-size: 40px;
+            line-height: 50px;
+            font-weight: 700;
+            transition: transform 0.2s ease-in;
+        }
+        &--parent:hover &--content{
+            transform: translateY(-50px);
+        }
+        &--title{
+            @extend %credits-title;
+        }
+        &--text{
+            @extend %credits-text;
+        }
+    }
+
+    &__music{
+        @extend %credits-box;
+        &--content{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding:40px;
+            padding-bottom: 0px;
+        }
+        &--image{
+            opacity: 0.3;
+            width: 100%;
+            transition: all 0.5s ease-in;
+        }
+        &--title{
+            @extend %credits-title;
+        }
+        &--text{
+            @extend %credits-text;
+        }
+    }
+    &__music:hover &__music--image{
+        opacity: 1;
+    }
+
+    &__box{
+        @extend %credits-box;
+        &--position{
+            @extend %flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            // overflow: hidden;
+        }
+        &--parent{
+            position: relative;
+            overflow: hidden;
+            height: 45px;
+        }
+        &--content{
+            font-size: 40px;
+            line-height: 50px;
+            font-weight: 700;
+            transition: transform 0.2s ease-in;
+        }
+        &--parent:hover &--content{
+            transform: translateY(-50px);
+        }
+        &--title{
+            @extend %credits-title;
+        }
+        &--text{
+            @extend %credits-text;
+        }
+    }
+}

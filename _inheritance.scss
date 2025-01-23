@@ -1,0 +1,34 @@
+%flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%credits-title{
+    position: relative;
+    margin-bottom: 4px;
+    color: $color1;
+    font-size: 17px;
+    line-height: 23px;
+    font-weight: 400;
+}
+
+%credits-text{
+    position: relative;
+    color: $color1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+%credits-box{
+    position:relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left:30px;
+    padding-bottom: 30px;
+    overflow: hidden;
+    justify-content: flex-end;
+    border-right:1px solid $color3;
+    border-bottom: 1px solid $color3;
+}

@@ -1,0 +1,96 @@
+/* Gallery Container */
+.gallery {
+  --d: 20s; /* Duration for one full loop */
+  display: grid;
+  width: 90%; /* Adjust width to fit smaller screens */
+  max-width: 400px; /* Limit max width for larger screens */
+  margin: 0 auto; /* Center the gallery */
+}
+
+/* Individual Images */
+.gallery > img {
+  grid-area: 1/1;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 10px solid #f2f2f2;
+  box-shadow: 0 0 4px #0007;
+  z-index: 1;
+  animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
+}
+
+/* Adjust animation delays for 20 images */
+.gallery > img:nth-child(1) { animation-delay: calc(0*var(--d) / 20); --r: 17deg; }
+.gallery > img:nth-child(2) { animation-delay: calc(-1*var(--d) / 20); --r: -6deg; }
+.gallery > img:nth-child(3) { animation-delay: calc(-2*var(--d) / 20); --r: -3deg; }
+.gallery > img:nth-child(4) { animation-delay: calc(-3*var(--d) / 20); --r: -3deg; }
+.gallery > img:nth-child(5) { animation-delay: calc(-4*var(--d) / 20); --r: 2deg; }
+.gallery > img:nth-child(6) { animation-delay: calc(-5*var(--d) / 20); --r: 2deg; }
+.gallery > img:nth-child(7) { animation-delay: calc(-6*var(--d) / 20); --r: -12deg; }
+.gallery > img:nth-child(8) { animation-delay: calc(-7*var(--d) / 20); --r: 12deg; }
+.gallery > img:nth-child(9) { animation-delay: calc(-8*var(--d) / 20); --r: -14deg; }
+.gallery > img:nth-child(10) { animation-delay: calc(-9*var(--d) / 20); --r: 14deg; }
+.gallery > img:nth-child(11) { animation-delay: calc(-10*var(--d) / 20); --r: 20deg; }
+.gallery > img:nth-child(12) { animation-delay: calc(-11*var(--d) / 20); --r: 15deg; }
+.gallery > img:nth-child(13) { animation-delay: calc(-12*var(--d) / 20); --r: 10deg; }
+.gallery > img:nth-child(14) { animation-delay: calc(-13*var(--d) / 20); --r: 5deg; }
+.gallery > img:nth-child(15) { animation-delay: calc(-14*var(--d) / 20); --r: 0deg; }
+.gallery > img:nth-child(16) { animation-delay: calc(-15*var(--d) / 20); --r: -5deg; }
+.gallery > img:nth-child(17) { animation-delay: calc(-16*var(--d) / 20); --r: -10deg; }
+.gallery > img:nth-child(18) { animation-delay: calc(-17*var(--d) / 20); --r: -15deg; }
+.gallery > img:nth-child(19) { animation-delay: calc(-18*var(--d) / 20); --r: -20deg; }
+.gallery > img:nth-child(20) { animation-delay: calc(-19*var(--d) / 20); --r: -25deg; }
+
+/* Keyframes for Slide Animation */
+@keyframes slide {
+  0%, 5% {
+    transform: translateX(0%) rotate(var(--r)); /* Center image */
+    z-index: 2; /* Bring to the front */
+  }
+  10%, 100% {
+    transform: translateZ(-50px) rotate(var(--r)); /* Move to the back */
+    opacity: 0.8; /* Slight fade for effect */
+    z-index: 1; /* Move to the back */
+  }
+}
+
+/* Keyframes for Z-Order Animation */
+@keyframes z-order {
+  0% { z-index: 2; }
+  5%, 100% { z-index: 1; }
+}
+
+/* Body Styling */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background: none;
+  overflow: hidden;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .gallery {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .gallery > img {
+    border: 5px solid #f2f2f2;
+    box-shadow: 0 0 2px #0007;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .gallery > img {
+    border: 3px solid #f2f2f2;
+    box-shadow: 0 0 1px #0005;
+  }
+}

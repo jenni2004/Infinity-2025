@@ -1,0 +1,138 @@
+@import url(//db.onlinewebfonts.com/c/91d3afe918937141b6ae8e43b1005bc8?family=Sharp+Grotesk+Book+25);
+@import url(//db.onlinewebfonts.com/c/3f864d85d00e6a91a091df0f857f62d8?family=Abuget);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+@import 'variables';
+@import 'inheritance';
+@import 'global';
+@import 'awwwards';
+@import 'skull';
+@import 'navbar';
+@import 'music';
+@import 'loader';
+@import 'home';
+@import 'goonies';
+@import 'coins';
+@import 'credits';
+@import 'skullblock';
+@import 'gallery';
+@import 'share';
+
+
+.audioplayer{
+    width: 280px;
+    position: fixed;
+    right: 0;
+    z-index: 9999;
+    bottom: 100px;
+    margin-right: 60px;
+    background-color: $color5;
+    display: flex;
+    flex-direction: column;
+    transform:translateX(120%);
+    opacity:0;
+    transition:all 0.5s ease-in-out;
+    &__head{
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+    }
+    &__btn{
+        background-color: $color4;
+        border-radius: 50%;
+        margin-right: 20px;
+        &--icon{
+            color: $color5;
+            padding: 10px;
+            padding-left: 14px;
+            font-size: 20px;
+        }
+    }
+    &__text{
+        
+    }
+    &__bar{
+        margin: 10px 10px;
+        position:relative;
+        &--curr{
+            position: absolute;
+            left: 0;
+            top: 50%;
+            background-color: $color4;
+            color: #aaa;
+            font-size: 8px;
+            padding: 2px 4px;
+            z-index: 10000;
+        }
+        &--total{
+            position:absolute;
+            right: 0;
+            top: 50%;
+            background-color: $color4;
+            color: #aaa;
+            font-size: 8px;
+            padding: 2px 4px;
+            z-index: 10000;
+        }
+        &--progress{
+            height: 60px;
+            width: 100%;
+            // background-image: url('soundwaves_empty_light.svg');
+            // background-image: cover;
+        }
+    }
+
+    &__controls{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+    }
+    &__volume{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        &--icon{
+            color: $color4;
+            font-size: 18px;
+        }
+        &--length{
+            position: absolute;
+            left: 30px;
+            height: 5px;
+            width: 100px;
+            background-color: #aaa;
+            border-radius: 5px;
+        }
+    }
+    &__skip{
+        width: 20%;
+        display: flex;
+        &--back{
+            color: $color4;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        &--forw{
+            color: $color4;
+            font-size: 18px;
+        }
+    }
+}
+.fa-pause{
+    padding-right: 14px;
+}
+
+.audioshow{
+    opacity:1;
+    transform: translateX(0);
+}
+
+.currlength{
+    background-color: $color4;
+    width: 100px;
+}
+
+
+
+

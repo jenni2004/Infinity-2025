@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: none; /* Dark background */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .slide-container {
+      max-width: 1120px;
+      width: 100%;
+      padding: 40px 0;
+    }
+
+    /* Card Styling with Black Color */
+    .card {
+      background-color: #373737; /* Black card */
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Title Styling with Neon Glow */
+    .name {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 
+        2px 2px 4px #000,    
+        0 2px 5px rgba(0, 204, 204, 1),
+        0 10px 102px rgba(0, 204, 204, 0.7);
+      font-family: 'Audiowide', sans-serif;
+      display: inline-block;
+    }
+
+    /* Image Styling with Golden Shadow */
+    .image-content {
+      position: relative;
+      text-align: center;
+      padding: 20px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .card-image {
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: 0 0 30px 10px #ffd700; /* Golden shadow around image */
+    }
+
+    .card-image .card-img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Content Styling */
+    .card-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #707070;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      border: none;
+      font-size: 16px;
+      color: #fff;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #a9a9a9, #454545);
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: #f0f0f0;
+    }
+
+    .button:hover {
+      background: linear-gradient(135deg, #265df2, #4070f4);
+    }
+
+    /* Modal Styling */
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #modal .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+
+    #modal #modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    #modal #modal-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    #modal #modal-title {
+      margin-bottom: 10px;
+    }
+
+    #modal #modal-description {
+      color: #555;
+    }
+
+    #modal #modal-extra-content {
+      margin-top: 20px;
+      color: #888;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Swiper Buttons */
+    .swiper-button-next,
+    .swiper-button-prev {
+      position: absolute;
+      bottom: -40px;
+      z-index: 10;
+      color: #6e93f7;
+      transition: color 0.3s ease;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      color: #4070f4;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: #6e93f7;
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: #4070f4;
+    }
+
+/* Initial slide style */
+.swiper-slide {
+  transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease;
+  transform: scale(0.8); /* Shrink default slides */
+  opacity: -1; /* Fade out default slides */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Light glow for inactive slides */
+}
+
+/* Active slide style (Zoom-in effect) */
+.swiper-slide-active {
+  transform: scale(1); /* Zoom-in effect */
+  opacity: 1; /* Full opacity for active slide */
+  z-index: 2; /* Bring to the front */
+  box-shadow: 0 0 30px rgba(0, 204, 204, 0.8); /* Glow effect for active slide */
+}
+
+/* Next and previous slide styles (Zoom-out effect and smaller glow) */
+.swiper-slide-next,
+.swiper-slide-prev {
+  transform: scale(0.3); /* Slight zoom-in effect for next/prev slides */
+  opacity: 0.5; /* Slightly faded next/prev slides */
+  z-index: 1; /* Layer behind active slide */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* Slight glow */
+}
+
+/* Transition for the entire slide change effect */
+.swiper-wrapper {
+  transition: transform 0.5s ease;
+}
+
+
+
+    @media screen and (max-width: 768px) {
+      .swiper-navBtn {
+        display: none;
+      }
+
+      .slide-content {
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slide-container swiper">
+    <div class="slide-content">
+      <div class="card-wrapper swiper-wrapper">
+        <!-- PROZONE-->
+        <div class="card swiper-slide">
+          <div class="image-content">
+            <div class="card-image">
+              <img src="images/logo/prozone.jpg" alt="" class="card-img">
+            </div>
+          </div>
+          <div class="card-content">
+            <h2 class="name">PROZONE</h2>
+            <p class="description">2 MEMBER EVENT.</p>
+            <button class="button" data-index="1">View More</button>
+          </div>
+        </div>
+
+         <!-- Card 2 -->
+         <div class="card swiper-slide">
+          <div class="image-content">
+            <div class="card-image">
+              <img src="images/logo/incognito.jpg" alt="" class="card-img">
+            </div>
+          </div>
+          <div class="card-content">
+            <h2 class="name">INCOGNITO</h2>
+            <p class="description">2 MEMBER EVENT</p>
+            <button class="button" data-index="2">View More</button>
+          </div>
+        </div>
+
+            <!-- Card 3 -->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <div class="card-image">
+                  <img src="images/logo/incognito.jpg" alt="" class="card-img">
+                </div>
+              </div>
+              <div class="card-content">
+                <h2 class="name">INVERGINO</h2>
+                <p class="description">2 MEMBER EVENT</p>
+                <button class="button" data-index="3">View More</button>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <div class="card-image">
+                  <img src="images/logo/techrush.jpg" alt="" class="card-img">
+                </div>
+              </div>
+              <div class="card-content">
+                <h2 class="name">TECHRUSH</h2>
+                <p class="description">2 MEMBER EVENT</p>
+                <button class="button" data-index="4">View More</button>
+              </div>
+            </div>
+               <!-- Card 5 -->
+               <div class="card swiper-slide">
+                <div class="image-content">
+                  <div class="card-image">
+                    <img src="images/logo/techrush.jpg" alt="" class="card-img">
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h2 class="name">SWAPTICS</h2>
+                  <p class="description">2 MEMBER EVENT</p>
+                  <button class="button" data-index="5">View More</button>
+                </div>
+              </div>
+                 <!-- Card 6 -->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <div class="card-image">
+                  <img src="images/logo/techrush.jpg" alt="" class="card-img">
+                </div>
+              </div>
+              <div class="card-content">
+                <h2 class="name">FUSION FRAME</h2>
+                <p class="description">2 MEMBER EVENT</p>
+                <button class="button" data-index="6">View More</button>
+              </div>
+            </div>
+               <!-- Card 7 -->
+               <div class="card swiper-slide">
+                <div class="image-content">
+                  <div class="card-image">
+                    <img src="images/logo/techrush.jpg" alt="" class="card-img">
+                  </div>
+                </div>
+                <div class="card-content">
+                  <h2 class="name">GAMEHOLIX</h2>
+                  <p class="description">2 MEMBER EVENT</p>
+                  <button class="button" data-index="7">View More</button>
+                </div>
+              </div>
+                 <!-- Card 8 -->
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <div class="card-image">
+                  <img src="images/logo/techrush.jpg" alt="" class="card-img">
+                </div>
+              </div>
+              <div class="card-content">
+                <h2 class="name">TECH ARCADE</h2>
+                <p class="description">2 MEMBER EVENT</p>
+                <button class="button" data-index="8">View More</button>
+              </div>
+            </div>
+
+        <!-- Add more cards as needed -->
+        
+      </div>
+    </div>
+
+    <div class="swiper-button-next swiper-navBtn"></div>
+    <div class="swiper-button-prev swiper-navBtn"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal">
+    <div class="modal-content">
+      <span id="modal-close">&times;</span>
+      <img id="modal-image" src="" alt="Profile Image">
+      <h2 id="modal-title">Name</h2>
+      <p id="modal-description">Details</p>
+      <div id="modal-extra-content">
+        <!-- Extra content for "View More" goes here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiper = new Swiper(".slide-content", {
+  slidesPerView: 3, // Number of slides visible at once
+  spaceBetween: 25, // Space between slides
+  centeredSlides: true, // Center the active slide
+  loop: true, // Enable looping
+  grabCursor: true, // Change cursor to a grab style
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1, // Show only 1 slide on small screens
+    },
+    768: {
+      slidesPerView: 2, // Show 2 slides on tablets
+    },
+    1024: {
+      slidesPerView: 3, // Show 3 slides on larger screens
+    },
+  },
+  on: {
+    slideChange: function () {
+      // Optional: Add custom behavior when the slide changes
+    },
+  },
+});
+
+
+    // Event data (You can extend this)
+    const eventData = {
+      1: {
+        title: "PROZONE",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        extraContent: "This is extra content for David Dell's event. Here you can provide more details about the event, such as the date, venue, or other specifics.",
+        imageUrl: "images/logo/prozone.jpg"
+      },
+      2: {
+        title: "INCOGNITO",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        extraContent: " This is extra content for David Dell's event. Here you can provide more details about the event, such as the date, venue, or other specifics.",
+        imageUrl: "images/logo/incognito.jpg"
+      },
+      3: {
+        title: "INVERGINO",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        extraContent: "This is extra content for David Dell's event. Here you can provide more details about the event, such as the date, venue, or other specifics.",
+        imageUrl: "images/profile1.jpg"
+      },
+      4: {
+        title: "TECHRUSH",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        extraContent: "This is extra content for David Dell's event. Here you can provide more details about the event, such as the date, venue, or other specifics.",
+        imageUrl: "images/logo/techrush.jpg"
+      },
+      5: {
+        title: "SWAPTICS",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        extraContent: "This is extra content for David Dell's event. Here you can provide more details about the event, such as the date, venue, or other specifics.",
+        imageUrl: "images/logo/techrush.jpg"
+      },
+      6: {
+        title: "FUSION FRAME",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        extraContent: "This is extra content for David Dell's event. Here you can provide more details about the event, such as the date, venue, or other specifics.",
+        imageUrl: "images/logo/techrush.jpg"
+      },
+      7: {
+        title: "GAMEHOLIX",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        extraContent: "This is extra content for David Dell's event. Here you can provide more details about the event, such as the date, venue, or other specifics.",
+        imageUrl: "images/logo/techrush.jpg"
+      },
+      8: {
+        title: "TECH ARCADE",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        extraContent: "This is extra content for David Dell's event. Here you can provide more details about the event, such as the date, venue, or other specifics.",
+        imageUrl: "images/logo/techrush.jpg"
+      },
+      // Add more events as needed
+    };
+
+    // Function to open the modal
+    function openModal(index) {
+      const data = eventData[index];
+      const modal = document.getElementById("modal");
+
+      document.getElementById("modal-title").innerText = data.title;
+      document.getElementById("modal-description").innerText = data.description;
+      document.getElementById("modal-extra-content").innerText = data.extraContent;
+      document.getElementById("modal-image").src = data.imageUrl;
+
+      modal.style.display = "flex";
+    }
+
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // Add event listener to all "View More" buttons
+    document.querySelectorAll('.button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const index = button.getAttribute('data-index');
+        openModal(index);
+      });
+    });
+
+    // Close modal on close button click
+    document.getElementById("modal-close").addEventListener('click', closeModal);
+
+    // Close modal when clicking outside modal content
+    window.addEventListener('click', (event) => {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+
+</html>

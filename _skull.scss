@@ -1,0 +1,24 @@
+.skull{
+    @extend %flex;
+    flex-direction: column;
+    position: fixed;
+    left: 60px;
+    bottom: 40px;
+    z-index: 9997;
+    width: 36px;
+    height: 36px;
+    border-radius: 100px;
+    cursor: pointer;
+    overflow: hidden;
+    &__icon{
+        width: 11px;
+        margin: 8px;
+        transform:translateY(14px);
+        transition: transform 0.2s ease-in;
+    }
+    
+}
+
+.skull:hover .skull__icon{
+    transform: translateY(-17px)
+}

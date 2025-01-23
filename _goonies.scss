@@ -1,0 +1,90 @@
+.goonies{
+    @extend %flex;
+    // position : relative;
+    width: 100%;
+    height: 100vh;
+    // overflow: hidden;
+    &__list{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex: 1;
+        // z-index: 999;
+    }
+    &__item{
+        flex: 1;
+        position:relative;
+        cursor: pointer;
+        overflow: hidden;
+        transform: translateY(200px);
+        &--overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+        &--image{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform 3s ease-in;
+        }
+
+        .mickey-image{
+            background-image: url('images/goonies1.jpg');
+        }
+        .chunk-image{
+            background-image: url('images/goonies2.jpg');
+        }
+        .data-image{
+            background-image: url('images/goonies3.jpg');
+        }
+        .mouth-image{
+            background-image: url('images/goonies4.jpg');
+        }
+        &--content{
+            z-index: 1;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            transform: translateY(100px);
+            transition: transform 0.3s ease-in;
+        }
+        &--name{
+            font-size: 26px;
+            line-height: 26px;
+            margin-bottom: 4px;
+            margin-top: 20px;
+            color: $color1;
+            font-weight: 700;
+        }
+        &--link{
+            margin-right: 9px;
+            color: $color1;
+            font-size: 11px;
+            text-decoration: none;
+        }
+        &--icon{
+            width: 15px;
+        }
+    }
+    &__item:hover &__item--overlay{
+        opacity: 0;
+    }
+    &__item:hover &__item--image{
+        transform: scale(1.2);
+    }
+    &__item:hover &__item--content{
+        transform: translateY(0);
+    }
+}

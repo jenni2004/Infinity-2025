@@ -1,0 +1,62 @@
+.share{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    @extend %flex;
+    &__copyright{
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+        color: $color1;
+        font-size: 10px;
+        text-align: center;
+        letter-spacing: 1px;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+    }
+    &__content{
+        // position: relative;
+        // z-index: 99;
+        opacity: 0;
+        @extend %flex;
+        flex-direction: column;
+        width: 80%;
+        color: $color1;
+        &--info{
+            font-family: 'Montserrat', sans-serif; 
+        }
+        &--text{
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 35px;
+            line-height: 44px;
+            font-weight: 400;
+            transform: translateY(100px);
+        }
+        &--back{
+            font-family: 'Montserrat', sans-serif;
+            transform: translateY(100px);
+        }
+        &--link{
+            font-size: 12px;
+            margin-top: 9px;
+            text-decoration: none;
+            color: $color1;
+        }
+    }
+    &__line{
+        position: absolute;
+        left: 50%;
+        top: 50px;
+        width: 1px;
+        height: 160px;
+        display: flex;
+        align-items: flex-end;
+        &--draw{
+            width: 1px;
+            height: 100%;
+            background-color: $color1;
+        }
+    }
+}
